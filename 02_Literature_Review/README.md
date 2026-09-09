@@ -1,15 +1,19 @@
 **2.1 Introduction**
+
 This chapter presents a critical review of previous studies related to behavioural detection of file-encrypting ransomware on Windows endpoints using machine learning. The purpose of this literature review is to analyse existing approaches, identify their strengths and limitations, and establish the research foundation for the proposed study.
 Based on the reviewed literature, previous studies can be classified into two major categories: traditional behavioural analysis approaches and intelligent and adaptive detection approaches. These classifications provide a general understanding of how researchers have approached ransomware detection before examining specific research themes.
 
 **2.1.1 Behavioural Analysis-Based Detection**
+
 Behavioural monitoring approaches analyse ransomware based on activities performed during execution rather than relying on static signatures. These approaches collect information from operating system interactions, process execution and system-level events. Studies under this category demonstrate that ransomware produces observable behavioural patterns, which can be used as detection indicators. Another classification of behavioural detection focuses on changes produced by ransomware during file encryption. Researchers analyse abnormal file-writing patterns, entropy variation and file integrity changes to identify suspicious encryption activities.
 
 **2.1.2 Intelligent Detection and Response-Based Approaches**
+
 Machine-learning-based ransomware detection approaches have gained attention because they can identify complex relationships between multiple behavioural features. Instead of relying on manually created rules, these methods learn patterns from existing ransomware and benign samples. Recent studies have also focused on real-time endpoint protection by integrating behavioural monitoring with EDR technologies. These approaches aim to provide rapid detection and response while maintaining visibility against ransomware attempting to bypass security mechanisms.
 
 **2.2 Literature Review Format** 
 **2.2.1 Windows API Call and System Monitoring**
+
 Windows API calls provide information about how processes interact with the operating system during execution. Analysing the sequence of API calls can reveal malicious behavioural patterns that may not be visible through static malware signatures.
 
 Abdelwahed et al. (2023) developed MalpMiner, which applies Answer Set Programming to dynamic API-call sequences. The approach provided interpretable malware classification because suspicious behaviour could be linked to specific runtime activities. However, its effectiveness depends on the completeness of predefined behavioural rules.
@@ -23,6 +27,7 @@ Ramamoorthi et al. (2026) used Microsoft Sysmon to collect process and file-syst
 Overall, API-based monitoring provides valuable information about runtime behaviour. However, high-volume Windows telemetry can generate substantial background noise, while attackers may alter API sequences or execution timing to avoid behavioural detection. 
 
 **2.2.2 File-System Activity and Entropy Analysis**
+
 File-system monitoring is directly relevant to ransomware because file-encrypting ransomware modifies large numbers of files during an attack. Researchers commonly examine file-writing behaviour, entropy changes, file extensions and recovery-related activities.
 Lee and Lee (2022) demonstrated an important weakness in entropy-based ransomware detection. Their study showed that encoding techniques such as Base32 and Base64 could alter ciphertext entropy and potentially bypass simple entropy thresholds.
 
@@ -36,6 +41,7 @@ Hou et al. (2024) analysed 7,796 Windows ransomware samples and reported that 89
 These studies demonstrate that entropy and file-system behaviour are useful ransomware indicators. However, entropy should not be used alone because legitimate applications may also create high-entropy files and ransomware can manipulate its encryption behaviour.
 
 **2.2.3 Machine Learning-Based Ransomware Detection**
+
 Machine-learning techniques can analyse multiple ransomware characteristics simultaneously and classify activities as malicious or benign. Most coommonly evaluated algorithms include Random Forest, XGBoost, Support Vector Machine, Logistic Regression and Neural Networks. 
 Elsersy et al. compared Random Forest, Neural Network and Logistic Regression. Random Forest achieved approximately 98.1% accuracy, although the dataset did not fully represent runtime ransomware behaviour.
 
@@ -50,6 +56,7 @@ Panja et al. (2025) used feature-selection techniques with Random Forest and rep
 Overall, Random Forest and XGBoost frequently produced strong results, but no algorithm can be considered universally superior. Performance varies according to dataset characteristics, selected features and experimental conditions. 
 
 **2.4.4 Real-Time Detection, EDR and Evasion**
+
 Real-time ransomware detection and Endpoint Detection and Response (EDR) approaches focus on continuously monitoring endpoint activities and identifying malicious behaviour before significant damage occurs. Unlike traditional detection methods that rely on previously known malware signatures, these approaches analyse runtime behaviour, telemetry information and suspicious execution patterns.
 
 Abdelwahed et al. (2023) proposed MalpMiner, a dynamic malware-analysis approach that analyses API-call behaviour using Answer Set Programming. The study demonstrated that runtime behavioural information can improve malware detection while maintaining interpretability. However, the approach depends on predefined behavioural rules, which may reduce effectiveness against new execution patterns.
