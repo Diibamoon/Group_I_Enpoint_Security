@@ -8,8 +8,8 @@ Behavioural monitoring approaches analyse ransomware based on activities perform
 **2.1.2 Intelligent Detection and Response-Based Approaches**
 Machine-learning-based ransomware detection approaches have gained attention because they can identify complex relationships between multiple behavioural features. Instead of relying on manually created rules, these methods learn patterns from existing ransomware and benign samples. Recent studies have also focused on real-time endpoint protection by integrating behavioural monitoring with EDR technologies. These approaches aim to provide rapid detection and response while maintaining visibility against ransomware attempting to bypass security mechanisms.
 
-**2.2 Literature Review Format 
-2.2.1 Windows API Call and System Monitoring**
+**2.2 Literature Review Format** 
+**2.2.1 Windows API Call and System Monitoring**
 Windows API calls provide information about how processes interact with the operating system during execution. Analysing the sequence of API calls can reveal malicious behavioural patterns that may not be visible through static malware signatures.
 
 Abdelwahed et al. (2023) developed MalpMiner, which applies Answer Set Programming to dynamic API-call sequences. The approach provided interpretable malware classification because suspicious behaviour could be linked to specific runtime activities. However, its effectiveness depends on the completeness of predefined behavioural rules.
@@ -26,13 +26,16 @@ Overall, API-based monitoring provides valuable information about runtime behavi
 File-system monitoring is directly relevant to ransomware because file-encrypting ransomware modifies large numbers of files during an attack. Researchers commonly examine file-writing behaviour, entropy changes, file extensions and recovery-related activities.
 Lee and Lee (2022) demonstrated an important weakness in entropy-based ransomware detection. Their study showed that encoding techniques such as Base32 and Base64 could alter ciphertext entropy and potentially bypass simple entropy thresholds.
 
-Sai et al. (2026) developed a ransomware-detection method using Windows file-system filters and entropy analysis. Suspicious processes could be detected when multiple file writes produced unusually high entropy values. 
-Ahmed R et al. (2026) combined entropy measurements with file-write velocity using sliding-window analysis. This approach was intended to reduce false positives from legitimate activities such as compression and high-volume file operations. 
-Amoruso et al. (2026) proposed spot-entropy sampling rather than continuously analysing complete files. Their technique reduced computational requirements while still providing information about suspicious encryption activity. 
+Sai et al. (2026) developed a ransomware-detection method using Windows file-system filters and entropy analysis. Suspicious processes could be detected when multiple file writes produced unusually high entropy values.
+
+Ahmed R et al. (2026) combined entropy measurements with file-write velocity using sliding-window analysis. This approach was intended to reduce false positives from legitimate activities such as compression and high-volume file operations.
+
+Amoruso et al. (2026) proposed spot-entropy sampling rather than continuously analysing complete files. Their technique reduced computational requirements while still providing information about suspicious encryption activity.
+
 Hou et al. (2024) analysed 7,796 Windows ransomware samples and reported that 89.97% attempted to delete Windows Volume Shadow Copies. This indicates that recovery-tampering activities can provide additional ransomware indicators beyond file encryption itself. 
 These studies demonstrate that entropy and file-system behaviour are useful ransomware indicators. However, entropy should not be used alone because legitimate applications may also create high-entropy files and ransomware can manipulate its encryption behaviour.
 
-2.2.3 Machine Learning-Based Ransomware Detection
+**2.2.3 Machine Learning-Based Ransomware Detection**
 Machine-learning techniques can analyse multiple ransomware characteristics simultaneously and classify activities as malicious or benign. Most coommonly evaluated algorithms include Random Forest, XGBoost, Support Vector Machine, Logistic Regression and Neural Networks. 
 Elsersy et al. compared Random Forest, Neural Network and Logistic Regression. Random Forest achieved approximately 98.1% accuracy, although the dataset did not fully represent runtime ransomware behaviour.
 
